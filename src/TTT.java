@@ -3,7 +3,6 @@ import javax.swing.*;
 /**
  * Created by Zubair Waheed on 8/6/2016.
  *
- * 
  */
 public class TTT {
     public static void main(String[] args) {
