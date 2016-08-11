@@ -53,22 +53,31 @@ public class TTTGUI extends JPanel {
         b1 = new JButton();
         b1.setPreferredSize(new Dimension(100,100)); //Set size of 1, grid layout adjusts to make all others the same size
         b1.setActionCommand("b1");
+        b1.setBackground(Color.white);
         b2 = new JButton(new ImageIcon("X.p"));
         b2.setActionCommand("b2");
+        b2.setBackground(Color.white);
         b3 = new JButton();
         b3.setActionCommand("b3");
+        b3.setBackground(Color.white);
         b4 = new JButton();
         b4.setActionCommand("b4");
+        b4.setBackground(Color.white);
         b5 = new JButton();
         b5.setActionCommand("b5");
+        b5.setBackground(Color.white);
         b6 = new JButton();
         b6.setActionCommand("b6");
+        b6.setBackground(Color.white);
         b7 = new JButton();
         b7.setActionCommand("b7");
+        b7.setBackground(Color.white);
         b8 = new JButton();
         b8.setActionCommand("b8");
+        b8.setBackground(Color.white);
         b9 = new JButton();
         b9.setActionCommand("b9");
+        b9.setBackground(Color.white);
 
         buttons = new JButton[]{b1,b2,b3,b4,b5,b6,b7,b8,b9};
 
