@@ -46,7 +46,7 @@ public class TTTGUI extends JPanel {
         msg = new JLabel();
 
         b1 = new JButton();
-        b1.setPreferredSize(new Dimension(150,150)); //Set size of 1, grid layout adjusts to make all others the same size
+        b1.setPreferredSize(new Dimension(100,100)); //Set size of 1, grid layout adjusts to make all others the same size
         b1.setActionCommand("b1");
         b2 = new JButton();
         b2.setActionCommand("b2");
@@ -126,10 +126,12 @@ public class TTTGUI extends JPanel {
 
         if(model.checkWin() == true) {
             int winningTurn = model.getTurn();
+
             if(winningTurn == 1)
                 winningTurn = 2;
             else
                 winningTurn =1;
+
             msg.setText("Player " + winningTurn+ " wins!");//-1 because button press automatically cycles to next player
             b1.setEnabled(false);
             b2.setEnabled(false);
