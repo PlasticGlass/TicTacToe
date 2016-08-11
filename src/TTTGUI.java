@@ -48,10 +48,10 @@ public class TTTGUI extends JPanel {
         turn = new JLabel();
         msg = new JLabel();
 
-        turn.setPreferredSize(new Dimension(300,10));
+        turn.setPreferredSize(new Dimension(300,5));
 
         b1 = new JButton();
-        b1.setPreferredSize(new Dimension(100,100)); //Set size of 1, grid layout adjusts to make all others the same size
+        b1.setPreferredSize(new Dimension(101,101)); //Set size of 1, grid layout adjusts to make all others the same size
         b1.setActionCommand("b1");
         b1.setBackground(Color.white);
         b2 = new JButton(new ImageIcon("X.p"));

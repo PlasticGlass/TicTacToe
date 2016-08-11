@@ -63,11 +63,11 @@ public class TTTModel {
         switch(state)
         {
             case 1:
-                return new ImageIcon("X.png");
+                return new ImageIcon(this.getClass().getResource("X.png"));
             case 2:
-                return new ImageIcon("O.png");
+                return new ImageIcon(this.getClass().getResource("O.png"));
             default:
-                return new ImageIcon("blank.png");
+                return new ImageIcon(this.getClass().getResource("blank.png"));
         }
     }
 
