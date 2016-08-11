@@ -25,6 +25,7 @@ public class TTTGUI extends JPanel {
     private JLabel msg;
     private JPanel info;
 
+    
 
     public TTTGUI(TTTModel model)
     {
