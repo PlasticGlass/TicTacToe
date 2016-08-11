@@ -23,6 +23,7 @@ public class TTTGUI extends JPanel {
     private TTTModel model;
     private JLabel turn;
     private JLabel msg;
+    private JPanel info;
 
 
     public TTTGUI(TTTModel model)
@@ -37,13 +38,16 @@ public class TTTGUI extends JPanel {
 
     private void initialize()
     {
-        contentPane = new JPanel(new GridLayout(5, 1)); //4 Rows 1 coloumn
+        contentPane = new JPanel(new GridLayout(4, 1)); //4 Rows 1 coloumn
         top = new JPanel(new GridLayout(1,3));
         mid = new JPanel(new GridLayout(1,3));
         bottom = new JPanel(new GridLayout(1,3));
+        info = new JPanel(new GridLayout(2,1));
 
         turn = new JLabel();
         msg = new JLabel();
+
+        turn.setPreferredSize(new Dimension(300,10));
 
         b1 = new JButton();
         b1.setPreferredSize(new Dimension(100,100)); //Set size of 1, grid layout adjusts to make all others the same size
@@ -79,13 +83,17 @@ public class TTTGUI extends JPanel {
         bottom.add(buttons[7]);
         bottom.add(buttons[8]);
 
+        info.add(turn);
+        info.add(msg);
+
         contentPane.add(top);
         contentPane.add(mid);
         contentPane.add(bottom);
-        contentPane.add(turn);
-        contentPane.add(msg);
+        contentPane.add(info);
+
 
         this.add(contentPane);
+
     }
 
     private void registerControllers()
