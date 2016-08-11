@@ -6,7 +6,6 @@
  */
 public class TTTModel {
     public int[][] board; //2d array representing tictactoe board
-    int winner;
     private TTTGUI gui;  //GUI using this model
     private boolean turn;//Current turn (true = player 1 -- false = player 2)
 
