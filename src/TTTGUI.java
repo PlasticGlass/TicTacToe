@@ -25,7 +25,6 @@ public class TTTGUI extends JPanel {
     private JLabel msg;
 
 
-
     public TTTGUI(TTTModel model)
     {
         this.model = model;
@@ -126,7 +125,12 @@ public class TTTGUI extends JPanel {
         turn.setText("Player " + this.model.getTurn() + "'s turn.");
 
         if(model.checkWin() == true) {
-            msg.setText("Player " + (model.getTurn()-1)+ " wins!");//-1 because button press automatically cycles to next player
+            int winningTurn = model.getTurn();
+            if(winningTurn == 1)
+                winningTurn = 2;
+            else
+                winningTurn =1;
+            msg.setText("Player " + winningTurn+ " wins!");//-1 because button press automatically cycles to next player
             b1.setEnabled(false);
             b2.setEnabled(false);
             b3.setEnabled(false);
