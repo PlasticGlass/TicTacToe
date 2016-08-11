@@ -28,7 +28,6 @@ public class ButtonController implements ActionListener {
     {
         pressed = (JButton) e.getSource(); //Get object which made ActionEvent, convert it to JButton
         button = Integer.parseInt(pressed.getActionCommand().substring(1)); //only want last letter(number representing button pressed)
-        System.out.println(button + "pressed");
         this.model.buttonPressed(button); //Give model int value of button which was pressed
     }
 }
