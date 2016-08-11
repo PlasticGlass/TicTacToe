@@ -1,5 +1,9 @@
-import javax.swing.*;
-import java.awt.*;
+import javax.swing.JFrame;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -15,12 +19,14 @@ public class TTTModel {
     private boolean turn;//Current turn (true = player 1 -- false = player 2)
     public boolean reset = false;
 
+
     /**Constructor*/
     public TTTModel()
     {
         board = new int[3][3]; //Board is 3 rows by 3 coloumns
         turn = true; //Model starts on turn 1 by default
     }
+
 
     /**Checks if game has been won
      * @return boolean - if game has been won
@@ -58,6 +64,7 @@ public class TTTModel {
         return false;
     }
 
+
     /**Converts int state to string equivalent
      * @param state the player who had played/caused this method to be called
      * @return string equivalent of int value (X or O)
@@ -75,6 +82,7 @@ public class TTTModel {
         }
     }
 
+
     /**Returns player whose turn it currently is
      * @return which players turn it is
      */
@@ -85,6 +93,7 @@ public class TTTModel {
         else
             return 2;
     }
+
 
     /**Processes a player's button press
      * @param button int representing which button was pressed
@@ -116,6 +125,7 @@ public class TTTModel {
         }
         gui.update();
     }
+
 
     public void resetConfirm()
     {
@@ -153,6 +163,7 @@ public class TTTModel {
         msgWindow.setVisible(true);
     }
 
+
     private void reset()
     {
         for(int row = 0;row < board.length;row++)
@@ -165,13 +176,16 @@ public class TTTModel {
 
         reset = true;
         turn = true;
+
         gui.update();
     }
+
 
     public void resetOccured()
     {
         reset = !reset;
     }
+
 
     /**Checks if button clicked can have a move made on it (is free/not occupied by X or O already)
      * @param row row the pressed button was in
@@ -183,11 +197,13 @@ public class TTTModel {
         return(this.board[row][coloumn] == 0);
     }
 
+
     /**Cycle to next players turn*/
     private void nextTurn()
     {
         turn = !turn;
     }
+
 
     /**Connects this model to gui using it
      * @param gui the GUI using this model to process data

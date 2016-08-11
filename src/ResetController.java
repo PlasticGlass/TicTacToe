@@ -7,6 +7,7 @@ import java.awt.event.ActionListener;
 public class ResetController implements ActionListener {
     private TTTModel model; //Model to give data to
 
+
     /**Constructor
      * @param model Exact model connected to this controller
      */
@@ -14,6 +15,7 @@ public class ResetController implements ActionListener {
     {
         this.model = model;
     }
+
 
     /**Called on button press. Takes input from button press and gives to model.
      * @param e ActionEvent caused by button press

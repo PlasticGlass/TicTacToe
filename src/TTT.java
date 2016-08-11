@@ -1,6 +1,5 @@
-import javax.swing.*;
-import java.awt.*;
-
+import javax.swing.JFrame;
+import javax.swing.UIManager;
 /**
  * Created by Zubair Waheed on 8/6/2016.
  *

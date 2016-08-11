@@ -1,6 +1,8 @@
-import javax.swing.*;
-import java.awt.*;
-
+import javax.swing.JButton;
+import javax.swing.JPanel;
+import javax.swing.JLabel;
+import java.awt.Color;
+import java.awt.GridLayout;
 /**
  * Created by Zubair Waheed on 8/6/2016.
  */
@@ -27,7 +29,6 @@ public class TTTGUI extends JPanel {
     private JPanel info;
 
 
-
     public TTTGUI(TTTModel model)
     {
         this.model = model;
@@ -45,17 +46,13 @@ public class TTTGUI extends JPanel {
         mid = new JPanel(new GridLayout(1,3));
         bottom = new JPanel(new GridLayout(1,3));
         info = new JPanel(new GridLayout(2,2));
-
         turn = new JLabel();
         msg = new JLabel();
 
-        turn.setPreferredSize(new Dimension(100,5));
-
         b1 = new JButton();
-        b1.setPreferredSize(new Dimension(100,100)); //Set size of 1, grid layout adjusts to make all others the same size
         b1.setActionCommand("b1");
         b1.setBackground(Color.white);
-        b2 = new JButton(new ImageIcon("X.p"));
+        b2 = new JButton();
         b2.setActionCommand("b2");
         b2.setBackground(Color.white);
         b3 = new JButton();
@@ -158,16 +155,13 @@ public class TTTGUI extends JPanel {
                 winningTurn =1;
             turn.setText("");
             msg.setText("Player " + winningTurn+ " wins!");//-1 because button press automatically cycles to next player
-            b1.setEnabled(false);
-            b2.setEnabled(false);
-            b3.setEnabled(false);
-            b4.setEnabled(false);
-            b5.setEnabled(false);
-            b6.setEnabled(false);
-            b7.setEnabled(false);
-            b8.setEnabled(false);
-            b9.setEnabled(false);
+
+            for(int i = 0;i<buttons.length;i++)
+            {
+                buttons[i].setEnabled(false);
+            }
         }
+
         else
             msg.setText("Game in progress");
 
@@ -175,18 +169,11 @@ public class TTTGUI extends JPanel {
         {
             this.model.resetOccured();
 
-            b1.setEnabled(true);
-            b2.setEnabled(true);
-            b3.setEnabled(true);
-            b4.setEnabled(true);
-            b5.setEnabled(true);
-            b6.setEnabled(true);
-            b7.setEnabled(true);
-            b8.setEnabled(true);
-            b9.setEnabled(true);
-
+            for(int i = 0;i<buttons.length;i++)
+            {
+                buttons[i].setEnabled(true);
+            }
         }
-
     }
 }
 

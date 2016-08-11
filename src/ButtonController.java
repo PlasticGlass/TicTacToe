@@ -1,4 +1,4 @@
-import javax.swing.*;
+import javax.swing.JButton;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -13,6 +13,7 @@ public class ButtonController implements ActionListener {
     private int button;     //Int represention/value of pressed button
     private JButton pressed;//Actual button which was pressed
 
+
     /**Constructor
      * @param model Exact model connected to this controller
      */
@@ -20,6 +21,7 @@ public class ButtonController implements ActionListener {
     {
         this.model = model;
     }
+
 
     /**Called on button press. Takes input from button press and gives to model.
      * @param e ActionEvent caused by button press
