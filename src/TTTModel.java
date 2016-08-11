@@ -22,6 +22,34 @@ public class TTTModel {
      */
     public boolean checkWin()
     {
+        //Check rows
+        for(int row = 0; row < board.length; row++)
+        {
+            if(board[row][0] == board[row][1] && board[row][0] == board[row][2]) { //Check if row values all the same
+                if(board[row][0] != 0)
+                    return true;
+            }
+        }
+
+        //Check Diagonals
+        if(board[0][0] == board[1][1] && board[0][0] == board[2][2]) {
+            if(board[0][0] != 0)
+                return true;
+        }
+
+        if(board[0][2] == board[1][1] && board[0][2] == board[2][0]) {
+            if(board[0][2] != 0)
+                return true;
+        }
+
+        //Check coloumns
+        for(int c = 0;c < board[0].length;c++) {
+            if (board[0][c] == board[1][c] && board[0][c] == board[2][c]) { //Check if row values all the same
+                if (board[0][c] != 0)
+                    return true;
+            }
+        }
+
         return false;
     }
 

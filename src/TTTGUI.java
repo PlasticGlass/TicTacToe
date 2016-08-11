@@ -125,7 +125,8 @@ public class TTTGUI extends JPanel {
         turn.setText("Player " + this.model.getTurn() + "'s turn.");
 
         if(model.checkWin() == true) {
-            msg.setText("Player " + model.winner + " wins!");
+            msg.setText("Player " + model.getTurn()+ " wins!");
+            msg.setEnabled(false);
         }
         else
             msg.setText("Game in progress");
