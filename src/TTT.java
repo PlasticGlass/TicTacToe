@@ -16,6 +16,7 @@ public class TTT {
                     break;
                 }
             }
+            
         } catch (Exception e) {}
         TTTModel model = new TTTModel();
         TTTGUI gui = new TTTGUI(model);
