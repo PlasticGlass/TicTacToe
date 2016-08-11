@@ -48,7 +48,7 @@ public class TTTGUI extends JPanel {
         b1 = new JButton();
         b1.setPreferredSize(new Dimension(100,100)); //Set size of 1, grid layout adjusts to make all others the same size
         b1.setActionCommand("b1");
-        b2 = new JButton();
+        b2 = new JButton(new ImageIcon("X.p"));
         b2.setActionCommand("b2");
         b3 = new JButton();
         b3.setActionCommand("b3");
@@ -118,7 +118,7 @@ public class TTTGUI extends JPanel {
             for(int c = 0;c < model.board[row].length;c++)
             {
                 state = model.board[row][c];
-                buttons[(row*3)+c].setText(model.convertState(state)); //Update Text on button to acknowledge press by a player
+                buttons[(row*3)+c].setIcon(model.convertState(state)); //Update Text on button to acknowledge press by a player
             }
         }
 
@@ -131,7 +131,7 @@ public class TTTGUI extends JPanel {
                 winningTurn = 2;
             else
                 winningTurn =1;
-
+            turn.setText("");
             msg.setText("Player " + winningTurn+ " wins!");//-1 because button press automatically cycles to next player
             b1.setEnabled(false);
             b2.setEnabled(false);

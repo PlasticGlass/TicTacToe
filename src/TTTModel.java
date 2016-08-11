@@ -1,3 +1,5 @@
+import javax.swing.*;
+
 /**TicTacToeModel Class
  * Class used to process data for TicTacToe game
  * @author Zubair Waheed
@@ -56,16 +58,16 @@ public class TTTModel {
      * @param state the player who had played/caused this method to be called
      * @return string equivalent of int value (X or O)
      */
-    public String convertState(int state)
+    public ImageIcon convertState(int state)
     {
         switch(state)
         {
             case 1:
-                return "X";
+                return new ImageIcon("X.png");
             case 2:
-                return "O";
+                return new ImageIcon("O.png");
             default:
-                return "--";
+                return new ImageIcon("blank.png");
         }
     }
 
