@@ -1,4 +1,7 @@
 import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 /**TicTacToeModel Class
  * Class used to process data for TicTacToe game
@@ -10,6 +13,7 @@ public class TTTModel {
     public int[][] board; //2d array representing tictactoe board
     private TTTGUI gui;  //GUI using this model
     private boolean turn;//Current turn (true = player 1 -- false = player 2)
+    public boolean reset = false;
 
     /**Constructor*/
     public TTTModel()
@@ -111,6 +115,62 @@ public class TTTModel {
             this.nextTurn();
         }
         gui.update();
+    }
+
+    public void resetConfirm()
+    {
+        final JFrame msgWindow = new JFrame("Confirm Reset");
+        JPanel contents = new JPanel(new GridLayout(2,1));
+        JPanel buttons = new JPanel(new GridLayout(1,2));
+        JButton yes = new JButton("Yes");
+        JButton no = new JButton("No");
+        JLabel sure = new JLabel("Are you sure you want to reset the board?");
+
+        buttons.add(yes);
+        buttons.add(no);
+        contents.add(sure);
+        contents.add(buttons);
+
+        yes.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                reset();
+                msgWindow.dispose();
+            }
+        });
+
+        no.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                msgWindow.dispose();
+            }
+        });
+
+        msgWindow.setContentPane(contents);
+        msgWindow.pack();
+        msgWindow.setLocationRelativeTo(null);
+        msgWindow.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        msgWindow.setVisible(true);
+    }
+
+    private void reset()
+    {
+        for(int row = 0;row < board.length;row++)
+        {
+            for(int c = 0;c < board[row].length;c++)
+            {
+                board[row][c] = 0;
+            }
+        }
+
+        reset = true;
+        turn = true;
+        gui.update();
+    }
+
+    public void resetOccured()
+    {
+        reset = !reset;
     }
 
     /**Checks if button clicked can have a move made on it (is free/not occupied by X or O already)
