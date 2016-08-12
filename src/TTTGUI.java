@@ -43,6 +43,8 @@ public class TTTGUI extends JPanel {
 
         turn.setBorder(BorderFactory.createLoweredBevelBorder());
         msg.setBorder(BorderFactory.createLoweredBevelBorder());
+        turn.setHorizontalAlignment(SwingConstants.CENTER);
+        msg.setHorizontalAlignment(SwingConstants.CENTER);
 
         //Initialize buttons
         for(int i = 0;i<buttons.length;i++)
