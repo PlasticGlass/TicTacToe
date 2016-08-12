@@ -1,6 +1,5 @@
-import javax.swing.JButton;
-import javax.swing.JPanel;
-import javax.swing.JLabel;
+import javax.swing.*;
+import javax.swing.border.EtchedBorder;
 import java.awt.Color;
 import java.awt.GridLayout;
 /**
@@ -48,38 +47,20 @@ public class TTTGUI extends JPanel {
         info = new JPanel(new GridLayout(2,2));
         turn = new JLabel();
         msg = new JLabel();
-
-        b1 = new JButton();
-        b1.setActionCommand("b1");
-        b1.setBackground(Color.white);
-        b2 = new JButton();
-        b2.setActionCommand("b2");
-        b2.setBackground(Color.white);
-        b3 = new JButton();
-        b3.setActionCommand("b3");
-        b3.setBackground(Color.white);
-        b4 = new JButton();
-        b4.setActionCommand("b4");
-        b4.setBackground(Color.white);
-        b5 = new JButton();
-        b5.setActionCommand("b5");
-        b5.setBackground(Color.white);
-        b6 = new JButton();
-        b6.setActionCommand("b6");
-        b6.setBackground(Color.white);
-        b7 = new JButton();
-        b7.setActionCommand("b7");
-        b7.setBackground(Color.white);
-        b8 = new JButton();
-        b8.setActionCommand("b8");
-        b8.setBackground(Color.white);
-        b9 = new JButton();
-        b9.setActionCommand("b9");
-        b9.setBackground(Color.white);
-
         reset = new JButton("Reset Board");
+        buttons = new JButton[9];
 
-        buttons = new JButton[]{b1,b2,b3,b4,b5,b6,b7,b8,b9};
+        turn.setBorder(BorderFactory.createLoweredBevelBorder());
+        msg.setBorder(BorderFactory.createLoweredBevelBorder());
+
+        //Initialize buttons
+        for(int i = 0;i<buttons.length;i++)
+        {
+            buttons[i] = new JButton();
+            buttons[i].setActionCommand("b" + (i+1));
+            buttons[i].setBackground(Color.white);
+            buttons[i].setBorder(BorderFactory.createLoweredBevelBorder());
+        }
 
         top.add(buttons[0]);
         top.add(buttons[1]);
@@ -102,31 +83,29 @@ public class TTTGUI extends JPanel {
         contentPane.add(bottom);
         contentPane.add(info);
 
-
         this.add(contentPane);
-
     }
 
     private void registerControllers()
     {
         ButtonController b01 = new ButtonController(this.model);
-        b1.addActionListener(b01);
+        buttons[0].addActionListener(b01);
         ButtonController b02 = new ButtonController(this.model);
-        b2.addActionListener(b02);
+        buttons[1].addActionListener(b02);
         ButtonController b03 = new ButtonController(this.model);
-        b3.addActionListener(b03);
+        buttons[2].addActionListener(b03);
         ButtonController b04 = new ButtonController(this.model);
-        b4.addActionListener(b04);
+        buttons[3].addActionListener(b04);
         ButtonController b05 = new ButtonController(this.model);
-        b5.addActionListener(b05);
+        buttons[4].addActionListener(b05);
         ButtonController b06 = new ButtonController(this.model);
-        b6.addActionListener(b06);
+        buttons[5].addActionListener(b06);
         ButtonController b07 = new ButtonController(this.model);
-        b7.addActionListener(b07);
+        buttons[6].addActionListener(b07);
         ButtonController b08 = new ButtonController(this.model);
-        b8.addActionListener(b08);
+        buttons[7].addActionListener(b08);
         ButtonController b09 = new ButtonController(this.model);
-        b9.addActionListener(b09);
+        buttons[8].addActionListener(b09);
 
         ResetController rc = new ResetController(this.model);
         reset.addActionListener(rc);
@@ -154,16 +133,26 @@ public class TTTGUI extends JPanel {
             else
                 winningTurn =1;
             turn.setText("");
-            msg.setText("Player " + winningTurn+ " wins!");//-1 because button press automatically cycles to next player
+            msg.setText("Player " + winningTurn+ " wins!");
+        }
 
+        else if(model.checkDraw())
+        {
+            turn.setText("");
+            msg.setText("Its a draw!");
+        }
+
+        else
+            msg.setText("Game in progress");
+
+        //If win or draw, disable all buttons
+        if(model.checkWin() || model.checkDraw())
+        {
             for(int i = 0;i<buttons.length;i++)
             {
                 buttons[i].setEnabled(false);
             }
         }
-
-        else
-            msg.setText("Game in progress");
 
         if(this.model.reset == true)
         {

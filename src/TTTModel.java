@@ -180,6 +180,22 @@ public class TTTModel {
         gui.update();
     }
 
+    public boolean checkDraw()
+    {
+        for(int row = 0;row < board.length;row++)
+        {
+            for(int c = 0;c < board[row].length;c++)
+            {
+                //If even 1 element is empty it is not a draw
+                if(board[row][c] == 0)
+                    return false;
+            }
+        }
+
+        //If not a single index is empty and game has not been won, then it is a draw
+        return true;
+    }
+
 
     public void resetOccured()
     {
