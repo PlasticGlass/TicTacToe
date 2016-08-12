@@ -3,7 +3,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import java.awt.GridLayout;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -157,7 +157,7 @@ public class TTTModel {
         });
 
         msgWindow.setContentPane(contents);
-        msgWindow.pack();
+        msgWindow.setSize(270,125);
         msgWindow.setLocationRelativeTo(null);
         msgWindow.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         msgWindow.setVisible(true);

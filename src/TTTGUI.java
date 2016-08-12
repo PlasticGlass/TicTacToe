@@ -11,15 +11,6 @@ public class TTTGUI extends JPanel {
     private JPanel mid;
     private JPanel bottom;
     private JPanel contentPane;
-    private JButton b1;
-    private JButton b2;
-    private JButton b3;
-    private JButton b4;
-    private JButton b5;
-    private JButton b6;
-    private JButton b7;
-    private JButton b8;
-    private JButton b9;
     private JButton reset;
     private JButton[] buttons;
     private TTTModel model;
@@ -132,14 +123,16 @@ public class TTTGUI extends JPanel {
                 winningTurn = 2;
             else
                 winningTurn =1;
-            turn.setText("");
-            msg.setText("Player " + winningTurn+ " wins!");
+            turn.setText("Player " + winningTurn+ " wins!");
+            msg.setBorder(BorderFactory.createEmptyBorder());
+            msg.setText("");
         }
 
         else if(model.checkDraw())
         {
-            turn.setText("");
-            msg.setText("Its a draw!");
+            turn.setText("Its a draw!");
+            msg.setBorder(BorderFactory.createEmptyBorder());
+            msg.setText("");
         }
 
         else
@@ -162,6 +155,8 @@ public class TTTGUI extends JPanel {
             {
                 buttons[i].setEnabled(true);
             }
+
+            msg.setBorder(BorderFactory.createLoweredBevelBorder());
         }
     }
 }
